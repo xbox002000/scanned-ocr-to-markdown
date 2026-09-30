@@ -86,6 +86,8 @@ Worked example: 1 document × 10 pages → $0.005 + 10 × $0.006 = **$0.065** (p
 - Very large / high-DPI PDFs need more memory and time (default run memory **2048 MB**; multipage LOC peaks observed ~1.1–1.4 GB RSS).
 - Prefer the digital PDF/DOCX Actor when a text layer already exists.
 
-## License
+## License & source code
 
-Actor source: AGPL-3.0. Third-party notices: `NOTICE`.
+This Actor is open source under the **GNU Affero General Public License v3.0 (AGPL-3.0)** — see `LICENSE`. The full source code is public: https://github.com/xbox002000/scanned-ocr-to-markdown
+
+Third-party notices: `NOTICE`.
