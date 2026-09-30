@@ -86,6 +86,12 @@ Worked example: 1 document × 10 pages → $0.005 + 10 × $0.006 = **$0.065** (p
 - Very large / high-DPI PDFs need more memory and time (default run memory **2048 MB**; multipage LOC peaks observed ~1.1–1.4 GB RSS).
 - Prefer the digital PDF/DOCX Actor when a text layer already exists.
 
+## Related Actors / See also
+
+- [PDF & DOCX to Markdown — Table Extraction & RAG Chunks](https://apify.com/ingenious_quip_bxq/pdf-docx-to-markdown) — prefer this for **digital** PDFs/DOCX with a text layer (better table repair). Use this OCR Actor when pages are scans/images.
+- [Sitemap URL Extractor — PDF/DOCX Tags + robots.txt](https://apify.com/ingenious_quip_bxq/sitemap-url-discovery) — find PDF URLs on a site, then run OCR on image-only files.
+- [Bulk URL Status Checker — 404s & Redirects](https://apify.com/ingenious_quip_bxq/url-status-checker) — optional: drop dead document URLs before OCR (OCR is slower/costlier per page).
+
 ## License & source code
 
 This Actor is open source under the **GNU Affero General Public License v3.0 (AGPL-3.0)** — see `LICENSE`. The full source code is public: https://github.com/xbox002000/scanned-ocr-to-markdown

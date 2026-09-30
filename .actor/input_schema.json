@@ -1,136 +1,145 @@
 {
-    "title": "Scanned OCR to Markdown input",
-    "description": "Add scanned PDF or image files by URL or upload. Output Markdown and/or RAG chunks. Uses RapidOCR (onnxruntime) \u2014 works offline in the Actor container after build.",
-    "type": "object",
-    "schemaVersion": 1,
-    "properties": {
-        "urls": {
-            "title": "Document URLs (PDF or image)",
-            "type": "array",
-            "description": "Direct links to scanned PDFs or images (png/jpg/webp/tiff). Prefer direct download links.",
-            "editor": "requestListSources",
-            "sectionCaption": "Documents"
-        },
-        "files": {
-            "title": "Upload files",
-            "type": "array",
-            "description": "Upload scanned PDFs or images (stored in your Apify key-value store).",
-            "editor": "fileupload"
-        },
-        "outputFormat": {
-            "title": "Output",
-            "type": "string",
-            "description": "`markdown`: one dataset item per document. `chunks`: RAG-ready chunks. `markdown_and_chunks`: both.",
-            "editor": "select",
-            "enum": [
-                "markdown",
-                "chunks",
-                "markdown_and_chunks"
-            ],
-            "enumTitles": [
-                "Markdown (one item per document)",
-                "RAG chunks",
-                "Markdown + RAG chunks"
-            ],
-            "default": "markdown",
-            "sectionCaption": "Output"
-        },
-        "pageMarkers": {
-            "title": "Page markers",
-            "type": "string",
-            "description": "How page boundaries appear in Markdown.",
-            "editor": "select",
-            "enum": [
-                "comment",
-                "text",
-                "none"
-            ],
-            "enumTitles": [
-                "HTML comment <!-- page: N -->",
-                "Text line --- Page N ---",
-                "None"
-            ],
-            "default": "comment"
-        },
-        "saveMarkdownFiles": {
-            "title": "Also save .md files",
-            "type": "boolean",
-            "description": "Save each document as a .md file in the run's key-value store.",
-            "default": true
-        },
-        "chunkSize": {
-            "title": "Chunk size",
-            "type": "integer",
-            "description": "Maximum chunk size (unit below). Same field names as the digital PDF/DOCX Actor.",
-            "default": 1000,
-            "minimum": 100,
-            "maximum": 20000,
-            "sectionCaption": "RAG chunking"
-        },
-        "chunkOverlap": {
-            "title": "Chunk overlap",
-            "type": "integer",
-            "default": 150,
-            "minimum": 0,
-            "maximum": 10000,
-            "description": "How much trailing context from the previous chunk is repeated (same unit as chunk size, max 50% of chunk size)."
-        },
-        "chunkUnit": {
-            "title": "Chunk size unit",
-            "type": "string",
-            "editor": "select",
-            "enum": [
-                "tokens",
-                "characters"
-            ],
-            "enumTitles": [
-                "Tokens (\u22484 chars each)",
-                "Characters"
-            ],
-            "default": "tokens",
-            "description": "`tokens` uses \u22484 characters per token; `characters` is exact."
-        },
-        "prependHeadingPath": {
-            "title": "Prefix chunks with their section path",
-            "type": "boolean",
-            "default": false,
-            "description": "Adds a `Section: \u2026` line to each chunk's text when headings were detected."
-        },
-        "pageRange": {
-            "title": "Page range (PDF)",
-            "type": "string",
-            "description": "e.g. `1-3`, `1`, or `2-`. Empty = all pages.",
-            "editor": "textfield",
-            "pattern": "^\\s*(\\d+\\s*(-\\s*\\d*)?)?\\s*$",
-            "sectionCaption": "Advanced"
-        },
-        "maxPagesPerDocument": {
-            "title": "Max pages per document",
-            "type": "integer",
-            "description": "Safety cap on pages OCR'd (and billed) per PDF. 0 = no cap.",
-            "default": 100,
-            "minimum": 0
-        },
-        "dpi": {
-            "title": "Render DPI (PDF)",
-            "type": "integer",
-            "description": "Rasterization DPI before OCR. Higher = slower/more RAM, often better on small text. Range 72\u2013400.",
-            "default": 200,
-            "minimum": 72,
-            "maximum": 400
-        },
-        "repairTables": {
-            "title": "Assemble tables from OCR boxes",
-            "type": "boolean",
-            "description": "Cluster wide-gap OCR lines into Markdown tables. Best-effort geometry; not the digital-PDF word-index repair.",
-            "default": true
-        },
-        "pdfPassword": {
-            "title": "PDF password",
-            "type": "string",
-            "description": "Password for encrypted PDFs.",
-            "editor": "textfield",
-            "isSecret": true
+  "title": "Scanned OCR to Markdown input",
+  "description": "Add scanned PDF or image files by URL or upload. Output Markdown and/or RAG chunks. Uses RapidOCR (onnxruntime) \u2014 works offline in the Actor container after build.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Document URLs (PDF or image)",
+      "type": "array",
+      "description": "Direct links to scanned PDFs or images (png/jpg/webp/tiff). Prefer direct download links.",
+      "editor": "requestListSources",
+      "sectionCaption": "Documents",
+      "prefill": [
+        {
+          "url": "https://www.w3.org/WAI/WCAG21/Techniques/pdf/img/table-word.pdf"
         }
+      ]
+    },
+    "files": {
+      "title": "Upload files",
+      "type": "array",
+      "description": "Upload scanned PDFs or images (stored in your Apify key-value store).",
+      "editor": "fileupload"
+    },
+    "outputFormat": {
+      "title": "Output",
+      "type": "string",
+      "description": "`markdown`: one dataset item per document. `chunks`: RAG-ready chunks. `markdown_and_chunks`: both.",
+      "editor": "select",
+      "enum": [
+        "markdown",
+        "chunks",
+        "markdown_and_chunks"
+      ],
+      "enumTitles": [
+        "Markdown (one item per document)",
+        "RAG chunks",
+        "Markdown + RAG chunks"
+      ],
+      "default": "markdown",
+      "sectionCaption": "Output",
+      "prefill": "markdown"
+    },
+    "pageMarkers": {
+      "title": "Page markers",
+      "type": "string",
+      "description": "How page boundaries appear in Markdown.",
+      "editor": "select",
+      "enum": [
+        "comment",
+        "text",
+        "none"
+      ],
+      "enumTitles": [
+        "HTML comment <!-- page: N -->",
+        "Text line --- Page N ---",
+        "None"
+      ],
+      "default": "comment"
+    },
+    "saveMarkdownFiles": {
+      "title": "Also save .md files",
+      "type": "boolean",
+      "description": "Save each document as a .md file in the run's key-value store.",
+      "default": true
+    },
+    "chunkSize": {
+      "title": "Chunk size",
+      "type": "integer",
+      "description": "Maximum chunk size (unit below). Same field names as the digital PDF/DOCX Actor.",
+      "default": 1000,
+      "minimum": 100,
+      "maximum": 20000,
+      "sectionCaption": "RAG chunking"
+    },
+    "chunkOverlap": {
+      "title": "Chunk overlap",
+      "type": "integer",
+      "default": 150,
+      "minimum": 0,
+      "maximum": 10000,
+      "description": "How much trailing context from the previous chunk is repeated (same unit as chunk size, max 50% of chunk size)."
+    },
+    "chunkUnit": {
+      "title": "Chunk size unit",
+      "type": "string",
+      "editor": "select",
+      "enum": [
+        "tokens",
+        "characters"
+      ],
+      "enumTitles": [
+        "Tokens (\u22484 chars each)",
+        "Characters"
+      ],
+      "default": "tokens",
+      "description": "`tokens` uses \u22484 characters per token; `characters` is exact."
+    },
+    "prependHeadingPath": {
+      "title": "Prefix chunks with their section path",
+      "type": "boolean",
+      "default": false,
+      "description": "Adds a `Section: \u2026` line to each chunk's text when headings were detected."
+    },
+    "pageRange": {
+      "title": "Page range (PDF)",
+      "type": "string",
+      "description": "e.g. `1-3`, `1`, or `2-`. Empty = all pages.",
+      "editor": "textfield",
+      "pattern": "^\\s*(\\d+\\s*(-\\s*\\d*)?)?\\s*$",
+      "sectionCaption": "Advanced"
+    },
+    "maxPagesPerDocument": {
+      "title": "Max pages per document",
+      "type": "integer",
+      "description": "Safety cap on pages OCR'd (and billed) per PDF. 0 = no cap.",
+      "default": 100,
+      "minimum": 0,
+      "prefill": 5
+    },
+    "dpi": {
+      "title": "Render DPI (PDF)",
+      "type": "integer",
+      "description": "Rasterization DPI before OCR. Higher = slower/more RAM, often better on small text. Range 72\u2013400.",
+      "default": 200,
+      "minimum": 72,
+      "maximum": 400,
+      "prefill": 200
+    },
+    "repairTables": {
+      "title": "Assemble tables from OCR boxes",
+      "type": "boolean",
+      "description": "Cluster wide-gap OCR lines into Markdown tables. Best-effort geometry; not the digital-PDF word-index repair.",
+      "default": true,
+      "prefill": true
+    },
+    "pdfPassword": {
+      "title": "PDF password",
+      "type": "string",
+      "description": "Password for encrypted PDFs.",
+      "editor": "textfield",
+      "isSecret": true
     }
+  }
 }
