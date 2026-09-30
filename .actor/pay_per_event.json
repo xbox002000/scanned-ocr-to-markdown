@@ -1,0 +1,18 @@
+{
+    "apify-actor-start": {
+        "eventTitle": "Actor start",
+        "eventDescription": "Apify synthetic event, charged automatically once per GB of run memory (1 GB minimum). Kept at Apify's default price; covers the first 5 seconds of compute of every run.",
+        "eventPriceUsd": 5e-05
+    },
+    "document-ocrd": {
+        "eventTitle": "Document OCR'd",
+        "eventDescription": "Charged once per scanned PDF or image successfully OCR'd (covers download and setup). Failed downloads and unreadable files are never charged.",
+        "eventPriceUsd": 0.005
+    },
+    "page-ocrd": {
+        "eventTitle": "Page OCR'd",
+        "eventDescription": "Charged per page rasterized and OCR'd to Markdown (PDF pages or one page per image). RAG chunking included at no extra cost. Failed inputs are never charged.",
+        "eventPriceUsd": 0.006,
+        "isPrimaryEvent": true
+    }
+}

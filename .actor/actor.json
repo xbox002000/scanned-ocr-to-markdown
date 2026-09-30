@@ -1,0 +1,27 @@
+{
+    "actorSpecification": 1,
+    "name": "scanned-ocr-to-markdown",
+    "title": "Scanned PDF/Image OCR to Markdown",
+    "description": "OCR scanned PDFs and images into Markdown with RapidOCR (CJK-capable, onnxruntime). Page markers, optional RAG chunks, geometric table assembly. No external AI API keys.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "minMemoryMbytes": 1024,
+    "maxMemoryMbytes": 8192,
+    "defaultRunOptions": {
+        "build": "latest",
+        "memoryMbytes": 2048,
+        "timeoutSecs": 3600
+    },
+    "input": "./input_schema.json",
+    "output": "./output_schema.json",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md",
+    "changelog": "../CHANGELOG.md",
+    "categories": [
+        "AI",
+        "DEVELOPER_TOOLS"
+    ]
+}

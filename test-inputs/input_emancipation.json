@@ -1,0 +1,13 @@
+{
+  "urls": [
+    {
+      "url": "https://tile.loc.gov/storage-services/service/gdc/gdcwdl/wd/l_/02/71/4/wdl_02714/wdl_02714.pdf"
+    }
+  ],
+  "outputFormat": "markdown",
+  "saveMarkdownFiles": true,
+  "repairTables": true,
+  "pageMarkers": "comment",
+  "maxPagesPerDocument": 5,
+  "dpi": 200
+}

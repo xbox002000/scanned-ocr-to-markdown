@@ -1,0 +1,28 @@
+NOTICE — third-party components used by this Actor
+
+This product includes software and model artifacts from:
+
+1. RapidOCR — Copyright (c) RapidOCR Authors / RapidAI
+   Licensed under the Apache License, Version 2.0.
+   https://github.com/RapidAI/RapidOCR
+
+2. PaddleOCR OCR model weights (PP-OCR / PP-OCRv6 detection / classification / recognition)
+   Copyright (c) Baidu and/or respective PaddleOCR rights holders.
+   Distributed under the Apache License, Version 2.0.
+   Converted ONNX artifacts as redistributed by RapidOCR under the same terms.
+   https://github.com/PaddlePaddle/PaddleOCR
+
+3. ONNX Runtime — Copyright (c) Microsoft Corporation
+   Licensed under the MIT License.
+   https://github.com/microsoft/onnxruntime
+
+4. OpenCV — Copyright (c) OpenCV Foundation and contributors
+   Licensed under the Apache License, Version 2.0.
+   https://opencv.org/
+
+5. PyMuPDF — Copyright (c) Artifex Software, Inc.
+   Licensed under the GNU Affero General Public License v3.0.
+   https://github.com/pymupdf/PyMuPDF
+
+Full license texts for Apache-2.0 and MIT are available from the upstream projects.
+This Actor's own source code is licensed under AGPL-3.0 (see LICENSE).

@@ -1,0 +1,14 @@
+{
+  "urls": [
+    {
+      "url": "https://tile.loc.gov/storage-services/public/gdcmassbookdig/sermondeliveredm00furn/sermondeliveredm00furn.pdf"
+    }
+  ],
+  "outputFormat": "markdown",
+  "saveMarkdownFiles": true,
+  "repairTables": true,
+  "pageMarkers": "comment",
+  "pageRange": "1-8",
+  "maxPagesPerDocument": 8,
+  "dpi": 200
+}

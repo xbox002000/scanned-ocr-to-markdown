@@ -1,0 +1,15 @@
+apify==4.0.2
+httpx>=0.27
+pymupdf==1.28.2
+onnxruntime>=1.19.0,<2
+numpy>=1.26,<3
+Pillow>=10
+pyclipper>=1.2.0
+Shapely!=2.0.4,>=1.7.1
+PyYAML
+tqdm
+omegaconf!=2.2.1
+requests
+colorlog
+six>=1.15.0
+opencv-python-headless>=4.8,<5

@@ -1,0 +1,59 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Documents",
+            "transformation": {
+                "fields": ["fileName", "format", "status", "title", "pageCount", "pagesConverted", "stats", "chunkCount", "markdownUrl", "processingMs", "warnings", "error", "source"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "fileName": { "label": "File", "format": "text" },
+                    "format": { "label": "Format", "format": "text" },
+                    "status": { "label": "Status", "format": "text" },
+                    "title": { "label": "Title", "format": "text" },
+                    "pageCount": { "label": "Pages", "format": "number" },
+                    "pagesConverted": { "label": "OCR'd", "format": "number" },
+                    "stats": { "label": "Stats", "format": "object" },
+                    "chunkCount": { "label": "Chunks", "format": "number" },
+                    "markdownUrl": { "label": "Markdown file", "format": "link" },
+                    "processingMs": { "label": "Time (ms)", "format": "number" },
+                    "warnings": { "label": "Warnings", "format": "array" },
+                    "error": { "label": "Error", "format": "text" },
+                    "source": { "label": "Source", "format": "link" }
+                }
+            }
+        },
+        "markdown": {
+            "title": "Markdown",
+            "transformation": { "fields": ["fileName", "pageCount", "markdown"] },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "fileName": { "label": "File", "format": "text" },
+                    "pageCount": { "label": "Pages", "format": "number" },
+                    "markdown": { "label": "Markdown", "format": "text" }
+                }
+            }
+        },
+        "chunks": {
+            "title": "RAG chunks",
+            "transformation": { "fields": ["fileName", "chunkIndex", "pageStart", "pageEnd", "headingPath", "tokenEstimate", "containsTable", "text"] },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "fileName": { "label": "File", "format": "text" },
+                    "chunkIndex": { "label": "#", "format": "number" },
+                    "pageStart": { "label": "From page", "format": "number" },
+                    "pageEnd": { "label": "To page", "format": "number" },
+                    "headingPath": { "label": "Section", "format": "array" },
+                    "tokenEstimate": { "label": "≈Tokens", "format": "number" },
+                    "containsTable": { "label": "Table", "format": "boolean" },
+                    "text": { "label": "Text", "format": "text" }
+                }
+            }
+        }
+    }
+}

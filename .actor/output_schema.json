@@ -1,0 +1,19 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Scanned OCR to Markdown output",
+    "description": "Results go to the default dataset (`document` items; optional `chunk` items) and optional .md records in the key-value store.",
+    "properties": {
+        "documents": {
+            "type": "string",
+            "title": "Documents",
+            "description": "Default dataset. `type: \"document\"`: source, fileName, format, status, title, pageCount, pagesConverted, stats (ocrItems, tables, words…), markdown, markdownKey/markdownUrl, chunkCount, processingMs, warnings, error. `type: \"chunk\"` when chunk modes are on. Views: overview, markdown, chunks.",
+            "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+        },
+        "markdownFiles": {
+            "type": "string",
+            "title": "Markdown files (.md)",
+            "description": "Key-value store .md records when saveMarkdownFiles is true.",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/keys"
+        }
+    }
+}

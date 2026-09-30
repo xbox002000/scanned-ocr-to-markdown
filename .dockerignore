@@ -1,0 +1,10 @@
+.venv
+storage
+.git
+__pycache__
+*.pyc
+test-results
+notes
+samples
+test-inputs
+.apify

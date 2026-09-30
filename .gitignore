@@ -1,0 +1,10 @@
+.venv/
+storage/
+__pycache__/
+*.pyc
+test-results/
+notes/
+samples/*.pdf
+samples/*.png
+samples/*.jpg
+.apify/
