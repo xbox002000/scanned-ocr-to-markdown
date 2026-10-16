@@ -12,7 +12,7 @@
       "sectionCaption": "Documents",
       "prefill": [
         {
-          "url": "https://www.w3.org/WAI/WCAG21/Techniques/pdf/img/table-word.pdf"
+          "url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/main/python/tests/test_files/ch_en_num.jpg"
         }
       ]
     },

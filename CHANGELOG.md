@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7 — 2026-10-16
+
+- Fix: the input form now comes prefilled with a small public sample image (RapidOCR test image), so a run with the default input finishes quickly instead of stopping with "Provide at least one scanned PDF or image".
+
 ## 0.1.0 — 2026-09-30
 
 - Initial private MVP: scanned PDF / images → Markdown via RapidOCR + onnxruntime.
