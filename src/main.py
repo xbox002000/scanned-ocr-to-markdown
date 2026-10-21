@@ -225,7 +225,11 @@ async def main() -> None:
         inp = await Actor.get_input() or {}
         sources = _collect_sources(inp)
         if not sources:
-            raise ValueError("Provide at least one scanned PDF or image in `urls` or `files`.")
+            # Empty input (e.g. Store health check): OCR one small public sample instead of failing.
+            Actor.log.warning("No documents provided; running demo OCR on the sample image")
+            sources = _collect_sources({"urls": [{"url": "https://raw.githubusercontent.com/RapidAI/RapidOCR/main/python/tests/test_files/ch_en_num.jpg"}]})
+            if not sources:
+                raise ValueError("Provide at least one scanned PDF or image in `urls` or `files`.")
         Actor.log.info(f"OCR-converting {len(sources)} document(s)")
         # Warm OCR engine once
         await asyncio.to_thread(__import__("ocr_engine").get_engine)
